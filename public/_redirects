@@ -1,0 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+https://aja-dohack.netlify.com/* https://aja.nikl.me/:splat 301!
+
+# let the client router handle things
+/*  /index.html  200
