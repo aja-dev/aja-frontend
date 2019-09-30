@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./GardenDetails.css";
 import MainLayout from "../Components/MainLayout";
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import User from "../Utils/User";
 import {timeFormat} from "../Utils/method";

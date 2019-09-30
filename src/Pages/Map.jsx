@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+import "./Map.css";
 import MainLayout from "../Components/MainLayout";
 import axios from "axios";
 import GardenInfo from "../Components/GardenInfo";
@@ -25,7 +26,8 @@ class Map extends Component {
   _onInteractionStateChange = interactionState =>
     this.setState({ interactionState });
 
-  _onViewportStateChange = viewport => this.setState({ viewport: {...viewport} });
+  _onViewportStateChange = viewport =>
+    this.setState({ viewport: { ...viewport } });
 
   displayLocationInfo(position) {
     this._isUpdated = true;
@@ -66,12 +68,12 @@ class Map extends Component {
   }
 
   render() {
+    let allGardens;
+    let eachGarden;
+    const { popups, viewport } = this.state;
     if (this.state.gardens) {
-      //console.log(this.state);
-
-      let allGardens = this.state.gardens;
-      const { popups, viewport } = this.state;
-      let eachGarden = allGardens.map((garden, index) => {
+      allGardens = this.state.gardens;
+      eachGarden = allGardens.map((garden, index) => {
         return (
           <>
             <Marker
@@ -106,16 +108,18 @@ class Map extends Component {
                   this.setState({ popups });
                 }}
               >
-                <GardenInfo id={garden.id} key={`info-${garden.id}`}/>
+                <GardenInfo id={garden.id} key={`info-${garden.id}`} />
               </Popup>
             )}
           </>
         );
       });
-      return (
-        <MainLayout>
-          <h1>Gardens around you</h1>
+    }
+    return (
+      <MainLayout>
+        <h1>Gardens around you</h1>
 
+        {this.state.gardens ? (
           <div className="map">
             <ReactMapGL
               {...settings}
@@ -129,23 +133,24 @@ class Map extends Component {
               zoom={13}
             >
               <Marker
-              latitude={this.state.latitude}
-              longitude={this.state.longitude}
-              offsetLeft={-15}
-              offsetTop={-30}
-            >
-              <i class="fas fa-circle"></i>
-            </Marker>
+                latitude={this.state.latitude}
+                longitude={this.state.longitude}
+                offsetLeft={-15}
+                offsetTop={-30}
+              >
+                <i className="fas fa-circle"></i>
+              </Marker>
               {eachGarden}
             </ReactMapGL>
           </div>
-        </MainLayout>
-      );
-    } else {
-      return (
-        <p>Loading...</p>
-      );
-    }
+        ) : (
+          <div className="map">
+            <p>Loading&nbsp;</p>
+            <i className="fas fa-spinner icon-spin"></i>
+          </div>
+        )}
+      </MainLayout>
+    );
   }
 }
 

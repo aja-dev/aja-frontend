@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./About.css";
 import MainLayout from "../Components/MainLayout";
 
@@ -7,11 +7,28 @@ export default class About extends Component {
     return (
       <MainLayout>
         <p className="about__description">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-        At vero eos et accusam et justo duo dolores et ea rebum. 
-        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          We imagine the future of cities to be smart and green. Our idea is
+          simple and has a lot of potential:
+          <ul>
+            <li>
+              A smart city runs an Aja instance and adds public green spaces to
+              the database
+            </li>
+            <li>
+              For ease of use the green spaces gat a QR code with a deep link to
+              the their digital twins on Aja
+            </li>
+            <li>
+              Now citicens can sign up, scan a green area they would like to
+              take care of and "adopt" it
+            </li>
+          </ul>
+          Aja aims to
+          <ul>
+            <li>Bring the comunity closer together</li>
+            <li>Give everyone the opportinuty to engage with their city</li>
+            <li>Raise the quality of live in cities</li>
+          </ul>
         </p>
         <div className="about__featuresBox">
           <i class="fas fa-city fa-5x"></i>
@@ -24,7 +41,6 @@ export default class About extends Component {
           <h5 className="about__feature">Increase everyones quality of live</h5>
         </div>
       </MainLayout>
-
-    )
+    );
   }
 }
