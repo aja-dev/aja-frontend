@@ -122,6 +122,7 @@ class Map extends Component {
         {this.state.gardens ? (
           <div className="map">
             <ReactMapGL
+              zoom={13}
               {...settings}
               {...viewport}
               mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
@@ -130,7 +131,6 @@ class Map extends Component {
               width={1200}
               height={600}
               mapStyle="mapbox://styles/mapbox/navigation-preview-day-v2"
-              zoom={13}
             >
               <Marker
                 latitude={this.state.latitude}
